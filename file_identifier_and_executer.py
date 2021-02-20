@@ -15,6 +15,7 @@ if os.path.isfile(location):
         tools_png.xxd(location)
         tools_png.strs(location)
         tools_png.zsteg(location)
+        
     elif ('JPEG' in filetype):
 
         import tools_jpg
@@ -22,6 +23,17 @@ if os.path.isfile(location):
         tools_jpg.bw(location)
         tools_jpg.xxd(location)
         tools_jpg.strs(location)
+        
+    elif ('PDF' in filetype):
+        import tools_pdf
+        tools_pdf.exif(location)
+        tools_pdf.bw(location)
+        tools_pdf.xxd(location)
+        tools_pdf.strs(location)
+
+
+        
+    
 
 
     elif ('text' in filetype):
