@@ -13,6 +13,10 @@ def xxd(file_location):
 	output=sp.run(['xxd','-p',file_location],capture_output=True,text=True)
 	print(output.stdout)
 
+def cat(file_location):
+	output=sp.run(['cat',file_location]),capture_output=True,text=True)
+	print(output.stdout)
+
 
 
 
