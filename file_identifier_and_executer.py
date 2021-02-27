@@ -40,6 +40,7 @@ if os.path.isfile(location):
         import tools_txt
         tools_txt.exif(location)
         tools_txt.xxd(location)
+        tools_txt.cat(file_location)
 
     else:
         print('match')
