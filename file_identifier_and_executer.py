@@ -30,6 +30,16 @@ if os.path.isfile(location):
         tools_pdf.bw(location)
         tools_pdf.xxd(location)
         tools_pdf.strs(location)
+        tools_pdf.peepdf(location)
+
+    elif ('BMP' in filetype):
+
+        import tools_bmp
+        tools_bmp.exif(location)
+        tools_bmp.bw(location)
+        tools_bmp.xxd(location)
+        tools_bmp.strs(location)
+        tools_bmp.zsteg(location)
 
 
         

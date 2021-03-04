@@ -1,5 +1,3 @@
-#this module gives the different tools that we can 
-#apply on png format files so that we can excract its contents
 import subprocess as sp
 def exif(file_location):
 	global output
@@ -70,20 +68,3 @@ def xxd(file_location):
 				f.write(i)
 			except TypeError:
 				print('Extracted')
-
-
-
-
-def foremost(file_location):
-	global output
-	output=sp.run(['foremost','-i',file_location],capture_output=True,text=True)
-	output=output.stdout
-	with open('output.txt','a') as f:
-		f.write('output from foremost tool:\n\n')
-		for i in output:
-			try:
-				
-				f.write(i)
-			except TypeError:
-				print('Extracted')
-
