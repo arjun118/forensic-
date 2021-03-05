@@ -15,6 +15,7 @@ if os.path.isfile(location):
         tools_png.xxd(location)
         tools_png.strs(location)
         tools_png.zsteg(location)
+        tools_png.bulk_extractor(location)
         
     elif ('JPEG' in filetype):
 
@@ -23,6 +24,7 @@ if os.path.isfile(location):
         tools_jpg.bw(location)
         tools_jpg.xxd(location)
         tools_jpg.strs(location)
+        tools_jpg.bulk_extractor(location)
         
     elif ('PDF' in filetype):
         import tools_pdf
@@ -31,6 +33,7 @@ if os.path.isfile(location):
         tools_pdf.xxd(location)
         tools_pdf.strs(location)
         tools_pdf.peepdf(location)
+        tools_pdf.bulk_extractor(location)
 
     elif ('BMP' in filetype):
 
@@ -40,6 +43,7 @@ if os.path.isfile(location):
         tools_bmp.xxd(location)
         tools_bmp.strs(location)
         tools_bmp.zsteg(location)
+        tools_bmp.bulk_extractor(location)
 
 
         
