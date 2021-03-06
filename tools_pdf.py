@@ -9,7 +9,7 @@ def exif(file_location):
 
 		f.write('\n\noutput from exif tool:\n\n')
 
-		f.write('\n\noutput from exiftool :\n\n')
+		
 
 		for i in output:
 			try:
@@ -49,7 +49,7 @@ def strs(file_location):
 
 		f.write('\n\noutput from strings tool:\n\n')
 
-		f.write('\n\noutput from strings :\n\n')
+		 
 
 		for i in output:
 			try:
@@ -68,8 +68,7 @@ def xxd(file_location):
 
 		f.write('\n\noutput from xxd tool:\n\n')
 
-		f.write('\n\noutput from xxd :\n\n')
-
+		
 		for i in output:
 			try:
 				
@@ -99,6 +98,21 @@ def bulk_extractor(file_location):
 	with open('output.txt','a') as f:
 		f.write('\n\noutput from bulk_extractor tool:\n\n')
 		f.write('\n\nsee the newly created dir for more info:\n\n')
+		for i in output:
+			try:
+				
+				f.write(i)
+			except TypeError:
+				print('Extracted')
+
+
+def pdf_parser(file_location):
+	
+	output=sp.run(['pdf-parser','-a',file_location],capture_output=True,text=True)
+	output=output.stdout
+	with open('output.txt','a') as f:
+		f.write('\n\noutput from pdf-parser tool:\n\n')
+		
 		for i in output:
 			try:
 				
