@@ -10,7 +10,7 @@ def exif(file_location):
 				
 				f.write(i)
 			except TypeError:
-				print('Extracted')
+				print('failed')
 
 
 def bw(file_location):
@@ -24,7 +24,7 @@ def bw(file_location):
 				
 				f.write(i)
 			except TypeError:
-				print('Extracted')
+				print('failed')
 
 
 def zsteg(file_location):
@@ -38,7 +38,7 @@ def zsteg(file_location):
 				
 				f.write(i)
 			except TypeError:
-				print('Extracted')
+				print('failed')
 
 
 def strs(file_location):
@@ -52,7 +52,7 @@ def strs(file_location):
 				
 				f.write(i)
 			except TypeError:
-				print('Extracted')
+				print('failed')
 
 
 
@@ -67,7 +67,7 @@ def xxd(file_location):
 				
 				f.write(i)
 			except TypeError:
-				print('Extracted')
+				print('failed')
 
 
 ef bulk_extractor(file_location):
@@ -83,3 +83,16 @@ ef bulk_extractor(file_location):
 				f.write(i)
 			except TypeError:
 				print('the extracted data from this tool needs to be inspected manually')
+
+def hashdeep(file_location):
+	global output
+	output=sp.run(['hashdeep',file_location],capture_output=True,text=True)
+	output=output.stdout
+	with open('output.txt','a') as f:
+		f.write('output from hashdeep tool:\n\n')
+		for i in output:
+			try:
+				
+				f.write(i)
+			except TypeError:
+				print('failed')
