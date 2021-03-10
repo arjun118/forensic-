@@ -35,6 +35,7 @@ if os.path.isfile(location):
         tools_pdf.peepdf(location)
         tools_pdf.bulk_extractor(location)
         tools_pdf.pdf_parser(location)
+        tools_pdf.pdfid(location)
 
     elif ('BMP' in filetype):
 
