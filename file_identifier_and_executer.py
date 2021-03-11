@@ -47,11 +47,17 @@ if os.path.isfile(location):
         tools_bmp.zsteg(location)
         tools_bmp.bulk_extractor(location)
 
+    elif ('gzip' in filetype):
+
+        import tools_zip
+        tools_zip.tar_gzip(location)
+
+    elif ('bzip2' in filetype):
+
+        import tools_zip
+        tools_zip.tar_bzip2(location)
 
         
-    
-
-
     elif ('text' in filetype):
         import tools_txt
         tools_txt.exif(location)
