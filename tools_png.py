@@ -4,15 +4,14 @@ import subprocess as sp
 def exif(file_location):
 	global output
 	output=sp.run(['exiftool',file_location],capture_output=True,text=True)
-	output=output.stdout
 	with open('output.txt','w') as f:
-		f.write('output from exiftool tool:\n\n')
-		for i in output:
-			try:
-				
-				f.write(i)
-			except TypeError:
-				print('failed')
+            f.write('output from exiftool tool:\n\n')
+            for i in output:
+                try:
+                
+                    f.write(i)
+                except TypeError:
+                    print('failed') 
 
 
 def bw(file_location):

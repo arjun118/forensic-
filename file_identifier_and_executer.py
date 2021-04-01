@@ -57,6 +57,11 @@ if os.path.isfile(location):
         import tools_zip
         tools_zip.tar_bzip2(location)
 
+    elif ('Zip' in filetype):
+
+    	import tools_zip
+    	tools_zip.zipped(location)
+
         
     elif ('text' in filetype):
         import tools_txt
@@ -65,7 +70,7 @@ if os.path.isfile(location):
         tools_txt.cat(file_location)
 
     else:
-        print('match')
+        print('file type not supported')
 
 
 else:
