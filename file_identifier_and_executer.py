@@ -1,6 +1,7 @@
 import subprocess
 import os
 import re
+import concurrent.futures
 
 location=input('enter:')
 if os.path.isfile(location):
@@ -10,68 +11,75 @@ if os.path.isfile(location):
     
     if ('PNG' in filetype):
         import tools_png
-        tools_png.exif(location)
-        tools_png.bw(location)
-        tools_png.xxd(location)
-        tools_png.strs(location)
-        tools_png.zsteg(location)
-        tools_png.bulk_extractor(location)
-        
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            f1=ex.submit(tools_png.exif,location)
+            f2=ex.submit(tools_png.bw,location)
+            f3=ex.submit(tools_png.strs,location)
+            f5=ex.submit(tools_png.zsteg,location)
+            f6=ex.submit(tools_png.foremost,location)
+            f7=ex.submit(tools_png.bulk_extractor,location)
+            f8=ex.submit(tools_png.hashdeep,location)
     elif ('JPEG' in filetype):
 
         import tools_jpg
-        tools_jpg.exif(location)
-        tools_jpg.bw(location)
-        tools_jpg.xxd(location)
-        tools_jpg.strs(location)
-        tools_jpg.bulk_extractor(location)
-        
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            p1=ex.submit(tools_jpg.exif,location)
+            p2=ex.submit(tools_jpg.bw,location)
+            p3=ex.submit(tools_jpg.strs,location)
+            p5=ex.submit(tools_jpg.bulk_extractor,location)
+            p6=ex.submit(tools_jpg.hashdeep,location)
+
     elif ('PDF' in filetype):
         import tools_pdf
-        tools_pdf.exif(location)
-        tools_pdf.bw(location)
-        tools_pdf.xxd(location)
-        tools_pdf.strs(location)
-        tools_pdf.peepdf(location)
-        tools_pdf.bulk_extractor(location)
-        tools_pdf.pdf_parser(location)
-        tools_pdf.pdfid(location)
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            k1=ex.submit(tools_jpg.exif,location)
+            k2=ex.submit(tools_jpg.bw,location)
+            k3=ex.submit(tools_jpg.strs,location)
+            k5=ex.submit(tools_jpg.peepdf,location)
+            k6=ex.submit(tools_jpg.bulk_extractor,location)
+            k7=ex.submit(tools_jpg.pdf_parser,location)
+            k8=ex.submit(tools_jpg.pdfid,location)
 
     elif ('BMP' in filetype):
 
         import tools_bmp
-        tools_bmp.exif(location)
-        tools_bmp.bw(location)
-        tools_bmp.xxd(location)
-        tools_bmp.strs(location)
-        tools_bmp.zsteg(location)
-        tools_bmp.bulk_extractor(location)
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            b1=ex.submit(tools_bmp.exif,location)
+            b2=ex.submit(tools_bmp.bw,location)
+            b3=ex.submit(tools_bmp.strs,location)
+            b5=ex.submit(tools_bmp.zsteg,location)
+            b6=ex.submit(tools_bmp.hashdeep,location)
 
     elif ('gzip' in filetype):
 
         import tools_zip
-        tools_zip.tar_gzip(location)
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            t1=ex.submit(tools_zip.tar_gzip,location)
 
     elif ('bzip2' in filetype):
 
         import tools_zip
-        tools_zip.tar_bzip2(location)
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            v1=ex.submit(tools_zip.tar_bzip2,location)
+        
 
     elif ('Zip' in filetype):
 
-    	import tools_zip
-    	tools_zip.zipped(location)
+        import tools_zip
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            z1=ex.submit(tools_zip.zipped,location)
+            z2=ex.submit(tools_zip.zipdet,location)
+            z3=ex.submit(tools_zip.zipinfo,location)
 
         
     elif ('text' in filetype):
         import tools_txt
-        tools_txt.exif(location)
-        tools_txt.xxd(location)
-        tools_txt.cat(file_location)
+        with concurrent.futures.ThreadPoolExecutor() as ex:
+            t1=ex.submit(tools_txt.exif,location)
+            t2=ex.submit(tools_txt.xxd,location)
+            t3=ex.submit(tools_txt.cat,location)
 
     else:
-        print('file type not supported')
-
-
+        print('file type is not supported')
 else:
-    print("CAUTION:file not found")
+    print('file  not found')

@@ -40,3 +40,32 @@ def zipped(file_location):
 			except TypeError:
 				print('failed')
 
+
+def zidet(file_location):
+	
+	output=sp.run(['zipdetails',file_location],capture_output=True,text=True)
+	output=output.stdout
+	with open('output.txt','a') as f:
+
+		f.write('\n\nthe details about the zip file is:\n\n')
+		for i in output:
+			try:
+				
+				f.write(i)
+			except TypeError:
+				print('failed')
+
+def zipinfo(file_location):
+	
+	output=sp.run(['zipinfo',file_location],capture_output=True,text=True)
+	output=output.stdout
+	with open('output.txt','a') as f:
+
+		f.write('\n\ntheinformation about the zip file is:\n\n')
+		for i in output:
+			try:
+				
+				f.write(i)
+			except TypeError:
+				print('failed')
+
