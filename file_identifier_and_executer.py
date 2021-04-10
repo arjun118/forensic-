@@ -3,7 +3,7 @@ import os
 import re
 import concurrent.futures
 
-location=input('enter the loaction of target file:')
+location=input('enter the location of target file:')
 if os.path.isfile(location):
     f1=subprocess.run(['file',location],capture_output=True,text=True)
     filetype=re.findall(r'\w+',f1.stdout)
