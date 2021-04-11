@@ -32,13 +32,13 @@ if os.path.isfile(location):
     elif ('PDF' in filetype):
         import tools_pdf
         with concurrent.futures.ThreadPoolExecutor() as ex:
-            k1=ex.submit(tools_jpg.exif,location)
-            k2=ex.submit(tools_jpg.bw,location)
-            k3=ex.submit(tools_jpg.strs,location)
-            k5=ex.submit(tools_jpg.peepdf,location)
-            k6=ex.submit(tools_jpg.bulk_extractor,location)
-            k7=ex.submit(tools_jpg.pdf_parser,location)
-            k8=ex.submit(tools_jpg.pdfid,location)
+            k1=ex.submit(tools_pdf.exif,location)
+            k2=ex.submit(tools_pdf.bw,location)
+            k3=ex.submit(tools_pdf.strs,location)
+            k5=ex.submit(tools_pdf.peepdf,location)
+            k6=ex.submit(tools_pdf.bulk_extractor,location)
+            k7=ex.submit(tools_pdf.pdf_parser,location)
+            k8=ex.submit(tools_pdf.pdfid,location)
 
     elif ('BMP' in filetype):
 
